@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ironbound Asset Recovery</title>
+<meta name="description" content="Ironbound Asset Recovery helps families and estates recover money that is owed to them. We handle the research, paperwork, attorneys and court filings at no upfront cost.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Iron-and-brass: dark slate band up top, quiet paper body, one brass accent. Left-aligned editorial column. */
+  --iron:#1d2733;
+  --iron-2:#2b3846;
+  --paper:#f4f5f2;
+  --ink:#1b222b;
+  --muted:#5a6573;
+  --brass:#a8813f;
+  --line:#d9dcd6;
+  --card:#ffffff;
+  --display:"DM Serif Display", Georgia, "Times New Roman", serif;
+  --body:"Source Sans 3", "Segoe UI", Helvetica, Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#141a21; --ink:#e7eaee; --muted:#a3adba; --line:#2c3642; --card:#1b232c; --brass:#c9a160;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#141a21; --ink:#e7eaee; --muted:#a3adba; --line:#2c3642; --card:#1b232c; --brass:#c9a160;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.6}
+a{color:var(--brass)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--brass);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;line-height:1.15;margin:0}
+
+/* Header + hero share the iron band */
+.band{background:var(--iron);color:#eef1f4}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 0;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;color:#fff;text-decoration:none}
+.brand svg{flex:none}
+.brand b{font-family:var(--display);font-weight:400;font-size:24px;letter-spacing:.01em}
+.brand span{display:block;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#c3ccd6}
+.nav a.cta{color:#fff;text-decoration:none;border:1px solid #6b7a8a;padding:8px 16px;border-radius:4px;font-weight:600;font-size:16px}
+.nav a.cta:hover{border-color:var(--brass)}
+.hero{padding:48px 0 72px;display:grid;grid-template-columns:1.35fr 1fr;gap:48px;align-items:end}
+.hero h1{font-size:clamp(38px,5.2vw,60px)}
+.hero p{color:#c9d2db;max-width:34em;margin:20px 0 0}
+.hero .rule{height:3px;width:72px;background:var(--brass);margin-bottom:24px}
+.facts{border-left:1px solid #43526a;padding-left:28px;display:grid;gap:18px}
+.facts div{display:grid;gap:2px}
+.facts strong{font-family:var(--display);font-weight:400;font-size:26px;color:#fff}
+.facts small{color:#aab5c1;font-size:15px}
+
+section{padding:72px 0;border-bottom:1px solid var(--line)}
+.kicker{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--brass);font-weight:700;margin-bottom:12px}
+section h2{font-size:clamp(30px,3.6vw,42px);max-width:22em}
+.lead{color:var(--muted);max-width:40em;margin:16px 0 0}
+
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.card{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--brass);padding:24px;border-radius:2px}
+.card h3{font-size:24px;margin-bottom:8px}
+.card p{margin:0;color:var(--muted);font-size:17px}
+
+.steps{list-style:none;margin:40px 0 0;padding:0;display:grid;gap:0}
+.steps li{display:grid;grid-template-columns:64px 1fr;gap:20px;padding:22px 0;border-top:1px solid var(--line)}
+.steps li:last-child{border-bottom:1px solid var(--line)}
+.steps .n{font-family:var(--display);font-size:36px;color:var(--brass);line-height:1}
+.steps h3{font-size:22px;margin-bottom:4px}
+.steps p{margin:0;color:var(--muted)}
+
+.faq{margin-top:32px;display:grid;gap:0;max-width:780px}
+.faq details{border-top:1px solid var(--line);padding:18px 0}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;font-weight:700;font-size:19px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq summary::after{content:"+";color:var(--brass);font-size:24px;line-height:1}
+.faq details[open] summary::after{content:"\2013"}
+.faq p{color:var(--muted);margin:10px 0 0}
+
+.contact{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:start}
+.contact dl{margin:0;display:grid;gap:16px;background:var(--card);border:1px solid var(--line);padding:28px;border-radius:2px}
+.contact dt{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.contact dd{margin:2px 0 0;font-size:20px}
+
+footer{background:var(--iron);color:#aab5c1;font-size:15px;padding:36px 0}
+footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+footer p{margin:0;max-width:44em}
+
+@media (max-width:820px){
+  .hero,.contact{grid-template-columns:1fr}
+  .facts{border-left:0;padding-left:0;border-top:1px solid #43526a;padding-top:24px}
+  .grid3{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion: reduce){*{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="band">
+  <div class="wrap">
+    <header class="nav">
+      <a class="brand" href="#top" aria-label="Ironbound Asset Recovery home">
+        <svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true">
+          <rect x="3" y="3" width="34" height="34" rx="2" fill="none" stroke="#a8813f" stroke-width="2.5"/>
+          <rect x="9" y="9" width="22" height="22" fill="none" stroke="#e8ecf0" stroke-width="2"/>
+          <line x1="3" y1="20" x2="37" y2="20" stroke="#a8813f" stroke-width="2.5"/>
+          <circle cx="20" cy="20" r="3.2" fill="#a8813f"/>
+        </svg>
+        <div><b>Ironbound</b><span>Asset Recovery</span></div>
+      </a>
+      <a class="cta" href="#contact">Contact us</a>
+    </header>
+
+    <div class="hero" id="top">
+      <div>
+        <div class="rule"></div>
+        <h1>Money owed to your family should reach your family.</h1>
+        <p>Ironbound Asset Recovery finds funds that belong to people and estates, and does the work to get them paid. We handle the research, the paperwork, the attorneys and the court filings. You pay nothing up front.</p>
+      </div>
+      <div class="facts" aria-label="At a glance">
+        <div><strong>$0 up front</strong><small>We're paid only from what we recover.</small></div>
+        <div><strong>Legal costs covered</strong><small>Attorney and probate fees come out of our share.</small></div>
+        <div><strong>Based in Boston</strong><small>Serving families across New England and beyond.</small></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main>
+  <section id="what">
+    <div class="wrap">
+      <div class="kicker">What we recover</div>
+      <h2>Billions of dollars sit unclaimed because no one knows to ask for them.</h2>
+      <p class="lead">Accounts get forgotten, owners move, and people pass away before their affairs are settled. When that happens, the money is often held for years by an institution that is waiting for the right person to come forward.</p>
+      <div class="grid3">
+        <div class="card"><h3>Estates and heirs</h3><p>Money left in a loved one's name after they died. We identify the rightful heirs and open or reopen the estate so it can be paid.</p></div>
+        <div class="card"><h3>Unclaimed accounts</h3><p>Dormant bank balances, uncashed checks, stock and insurance proceeds that were turned over after the owner couldn't be reached.</p></div>
+        <div class="card"><h3>Surplus from sales</h3><p>Money left over after a property was sold to pay a debt, which belongs to the former owner or their family.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="wrap">
+      <div class="kicker">How it works</div>
+      <h2>Three steps, and we do the heavy lifting.</h2>
+      <ol class="steps">
+        <li><span class="n">1</span><div><h3>We reach out</h3><p>Our research team finds money we believe you, or a family member's estate, may be entitled to. We contact you to explain what we found.</p></div></li>
+        <li><span class="n">2</span><div><h3>We handle the process</h3><p>Once you agree, we gather the documents, work with our attorneys, and file whatever the court or the holder requires. Every legal cost is ours.</p></div></li>
+        <li><span class="n">3</span><div><h3>You get paid</h3><p>When the money is released, you receive your share. Our fee is a set percentage agreed in writing before any work begins.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="kicker">Questions</div>
+      <h2>What people usually ask us.</h2>
+      <div class="faq">
+        <details><summary>Is this legitimate?</summary><p>Yes. We are a private Massachusetts company. We never ask for money up front, and we never ask for a bank password or card number. Everything we agree on is put in writing for you to review, and you're welcome to have your own attorney look it over.</p></details>
+        <details><summary>Are you a government agency?</summary><p>No. Ironbound Asset Recovery is an independent company. We are not affiliated with any state, court or government office.</p></details>
+        <details><summary>Why don't you tell me where the money is right away?</summary><p>Finding the money and proving who it belongs to takes real research. We share the details once we have an agreement, and we explain every step from there.</p></details>
+        <details><summary>What if the person it belongs to has passed away?</summary><p>That is most of what we do. We work out who the legal heirs are, and our attorneys handle the probate needed to release the money. You don't pay those legal fees.</p></details>
+        <details><summary>What does it cost?</summary><p>Nothing unless we succeed. Our fee is a percentage of what is recovered, agreed in writing in advance.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" style="border-bottom:0">
+    <div class="wrap contact">
+      <div>
+        <div class="kicker">Contact</div>
+        <h2>Got a letter or a call from us?</h2>
+        <p class="lead">Reach out and we'll walk you through what we found and how the process works. There's no obligation.</p>
+      </div>
+      <dl>
+        <div><dt>Email</dt><dd><a href="mailto:info@ironboundassetrecovery.com">info@ironboundassetrecovery.com</a></dd></div>
+        <div><dt>Office</dt><dd>Boston, Massachusetts</dd></div>
+        <div><dt>Hours</dt><dd>Monday to Friday, 9am to 5pm Eastern</dd></div>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>&copy; 2026 Ironbound Asset Recovery LLC. Ironbound Asset Recovery is a private company and is not affiliated with any government agency or court.</p>
+    <p><a href="#top" style="color:#c3ccd6">Back to top</a></p>
+  </div>
+</footer>
+</body>
+</html>
